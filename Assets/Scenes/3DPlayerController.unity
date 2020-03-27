@@ -241,7 +241,7 @@ MonoBehaviour:
   skinWidth: 0
   groundCheckDistance: 0
   mouseSensitivity: 0
-  geometriLayer:
+  collisionLayer:
     serializedVersion: 2
     m_Bits: 256
 --- !u!1 &136723590

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9d58736-056d-42b1-b8c3-ececfb36dad4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SPD/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SPD/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SPD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SPD/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3DPlayerController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3DPlayerController.unity" afterDir="false" />
+    <list default="true" id="c9d58736-056d-42b1-b8c3-ececfb36dad4" name="Default Changelist" comment="Fixed angle of projection">
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ThreeDController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ThreeDController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,8 +79,16 @@
       <workItem from="1585226586615" duration="29682000" />
       <workItem from="1585267851103" duration="8360000" />
       <workItem from="1585299836861" duration="115000" />
-      <workItem from="1585299965980" duration="9741000" />
+      <workItem from="1585299965980" duration="10084000" />
     </task>
+    <task id="LOCAL-00001" summary="Fixed angle of projection">
+      <created>1585311493075</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585311493075</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +109,10 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed angle of projection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed angle of projection" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="-1130" y="220" key="RiderGenerateDialog" timestamp="1584992340525">
       <screen x="-1920" y="0" width="1920" height="1040" />
@@ -117,6 +126,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="804" y="224" key="VCS.ChangeListViewerDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585306427884" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585311496617">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585311496617" />
     <state x="605" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585141742529">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

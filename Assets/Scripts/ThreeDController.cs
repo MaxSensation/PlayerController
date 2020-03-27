@@ -39,7 +39,7 @@ public class ThreeDController : MonoBehaviour
     [SerializeField]
     [Range(1f,500f)]
     public float mouseSensitivity;
-    public LayerMask geometriLayer;
+    public LayerMask collisionLayer;
     private CapsuleCollider _collider;
     private Transform _firstPersonCamera;
     private Vector3 _velocity;
@@ -72,7 +72,7 @@ public class ThreeDController : MonoBehaviour
         var center = _collider.center;
         var point1 = position + center + Vector3.up * distanceToPoints;
         var point2 = position + center + Vector3.down * distanceToPoints;
-        Physics.CapsuleCast(point1, point2, _collider.radius, movement.normalized, out var hit, float.PositiveInfinity, geometriLayer);
+        Physics.CapsuleCast(point1, point2, _collider.radius, movement.normalized, out var hit, float.PositiveInfinity, collisionLayer);
         if (!hit.collider) return movement;
         var allowedDistance = hit.distance + (skinWidth / Vector3.Dot(movement.normalized, hit.normal));
         if (allowedDistance < 0) allowedDistance = 0;
@@ -127,7 +127,7 @@ public class ThreeDController : MonoBehaviour
         var center = _collider.center;
         var point1 = position + center + Vector3.up * distanceToPoints;
         var point2 = position + center + Vector3.down * distanceToPoints;
-        Physics.CapsuleCast(point1, point2, _collider.radius, Vector3.down, out var hit, groundCheckDistance + skinWidth, geometriLayer);
+        Physics.CapsuleCast(point1, point2, _collider.radius, Vector3.down, out var hit, groundCheckDistance + skinWidth, collisionLayer);
         return hit;
     }
 
