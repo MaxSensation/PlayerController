@@ -37,10 +37,10 @@ public class ThreeDController : MonoBehaviour
     [Range(0f,1f)]
     public float groundCheckDistance;
     [SerializeField]
-    [Range(0f,1f)]
+    [Range(0f,10f)]
     public float overlayColliderResistant;
     [SerializeField]
-    [Range(1f,500f)]
+    [Range(0f,500f)]
     public float mouseSensitivity;
     public LayerMask collisionLayer;
     private CapsuleCollider _collider;
@@ -60,7 +60,7 @@ public class ThreeDController : MonoBehaviour
         airResistant = 0.1f;
         skinWidth = 0.05f;
         groundCheckDistance = 0.05f;
-        overlayColliderResistant = 0.1f;
+        overlayColliderResistant = 2f;
         mouseSensitivity = 100;
         _collider = GetComponent<CapsuleCollider>();
         _firstPersonCamera = transform.GetChild(0);
@@ -98,7 +98,7 @@ public class ThreeDController : MonoBehaviour
         {
             var playerClosestPointOnBounds = _collider.ClosestPointOnBounds(overlapCollider.transform.position);
             var colliderOverLapClosestPointOnBounds = overlapCollider.ClosestPointOnBounds(playerClosestPointOnBounds);
-            _velocity +=  -movement.normalized * (colliderOverLapClosestPointOnBounds.magnitude * overlayColliderResistant);
+            _velocity +=  -movement.normalized * ((colliderOverLapClosestPointOnBounds.magnitude + overlayColliderResistant*100.0f) * Time.deltaTime);
         }
     }
 
@@ -116,7 +116,6 @@ public class ThreeDController : MonoBehaviour
         {
             return direction.normalized * (accelerationSpeed * Time.deltaTime);
         }
-
         return direction * (accelerationSpeed * Time.deltaTime);
     }
 
@@ -163,7 +162,7 @@ public class ThreeDController : MonoBehaviour
 
     private void Accelerate(Vector3 forces)
     {
-        var turnSpeed = Mathf.Lerp(0.2f, 0.4f, Vector3.Dot(forces.normalized, _velocity.normalized));
+        var turnSpeed = Mathf.Lerp(0.1f, 0.4f, Vector3.Dot(forces.normalized, _velocity.normalized));
         _velocity += forces * ((accelerationSpeed + turnSpeed) * Time.deltaTime);
         if (_velocity.magnitude > terminalVelocity) _velocity = _velocity.normalized * (terminalVelocity);
     }
@@ -188,8 +187,8 @@ public class ThreeDController : MonoBehaviour
     private Vector3 CorrectInputVectorFromCamera(Vector3 inputVector)
     {
         var hit = GetGroundNormal();
-        var projectHor = Vector3.ProjectOnPlane(_firstPersonCamera.rotation * inputVector, Vector3.up);
-        return hit.collider ? Vector3.ProjectOnPlane(projectHor,  hit.normal).normalized : projectHor;
+        var projectHorizontal = Vector3.ProjectOnPlane(_firstPersonCamera.rotation * inputVector, Vector3.up);
+        return hit.collider ? Vector3.ProjectOnPlane(projectHorizontal,  hit.normal).normalized : projectHorizontal;
     }
     
     private void Update()

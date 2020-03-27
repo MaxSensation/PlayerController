@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9d58736-056d-42b1-b8c3-ececfb36dad4" name="Default Changelist" comment="Added GitignoreTag">
+    <list default="true" id="c9d58736-056d-42b1-b8c3-ececfb36dad4" name="Default Changelist" comment="Fixed OverLayCorrection">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SPD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SPD/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3DPlayerController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3DPlayerController.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ThreeDController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ThreeDController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +81,7 @@
       <workItem from="1585226586615" duration="29682000" />
       <workItem from="1585267851103" duration="8360000" />
       <workItem from="1585299836861" duration="115000" />
-      <workItem from="1585299965980" duration="17384000" />
+      <workItem from="1585299965980" duration="18142000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed angle of projection">
       <created>1585311493075</created>
@@ -105,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585311746280</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixed OverLayCorrection">
+      <created>1585319050198</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1585319050198</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,7 +136,8 @@
     <MESSAGE value="Fixed angle of projection" />
     <MESSAGE value="Fixed layername" />
     <MESSAGE value="Added GitignoreTag" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added GitignoreTag" />
+    <MESSAGE value="Fixed OverLayCorrection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed OverLayCorrection" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1130" y="220" key="RiderGenerateDialog" timestamp="1584992340525">
@@ -145,10 +152,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="804" y="224" key="VCS.ChangeListViewerDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585306427884" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585311708801">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585319051346">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585311708801" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585319051346" />
     <state x="605" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585141742529">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
