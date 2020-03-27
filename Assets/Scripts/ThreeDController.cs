@@ -68,7 +68,36 @@ public class ThreeDController : MonoBehaviour
         _cameraRotation = Vector2.zero;
         Cursor.lockState = CursorLockMode.Locked;
     }
+    
+    private void AddForce()
+    {
+        var inputVector = GetInputVector();
+        var forces = (inputVector + GetJumpVector() + GetGravityVector());
+        if (inputVector.magnitude > 0)
+            Accelerate(forces);
+        else
+            Decelerate();
+        _velocity += forces;
+        AddAirResistance();
+        var correctedVector = GetAllowedDistance(_velocity * Time.deltaTime);
+        transform.position += correctedVector;
+    }
+    
+    private void Accelerate(Vector3 forces)
+    {
+        var turnSpeed = Mathf.Lerp(0.1f, 0.4f, Vector3.Dot(forces.normalized, _velocity.normalized));
+        _velocity += forces * ((accelerationSpeed + turnSpeed) * Time.deltaTime);
+        if (_velocity.magnitude > terminalVelocity) _velocity = _velocity.normalized * (terminalVelocity);
+    }
 
+    private void Decelerate()
+    {
+        var decelerateVector = _velocity;
+        decelerateVector.y = 0;
+        if (decelerateVector.magnitude > decelerateThreshold) _velocity += decelerateVector.normalized * (decelerateSpeed * Time.deltaTime);
+        else _velocity.x = 0;
+    }
+    
     private Vector3 GetAllowedDistance(Vector3 movement)
     {
         while (true)
@@ -88,17 +117,6 @@ public class ThreeDController : MonoBehaviour
             AddFriction(normalForce.magnitude);
             AddOverLayCorrection(movement, point1, point2);
             movement = _velocity * Time.deltaTime;
-        }
-    }
-
-    private void AddOverLayCorrection(Vector3 movement, Vector3 point1, Vector3 point2)
-    {
-        var overlapCollides = Physics.OverlapCapsule(point1, point2, _collider.radius, collisionLayer);
-        foreach (var overlapCollider in overlapCollides)
-        {
-            var playerClosestPointOnBounds = _collider.ClosestPointOnBounds(overlapCollider.transform.position);
-            var colliderOverLapClosestPointOnBounds = overlapCollider.ClosestPointOnBounds(playerClosestPointOnBounds);
-            _velocity +=  -movement.normalized * ((colliderOverLapClosestPointOnBounds.magnitude + overlayColliderResistant*100.0f) * Time.deltaTime);
         }
     }
 
@@ -123,21 +141,7 @@ public class ThreeDController : MonoBehaviour
     {
         return Vector3.down * (gravity * Time.deltaTime);
     }
-
-    private void AddForce()
-    {
-        var inputVector = GetInputVector();
-        var forces = (inputVector + GetJumpVector() + GetGravityVector());
-        if (inputVector.magnitude > 0)
-            Accelerate(forces);
-        else
-            Decelerate();
-        _velocity += forces;
-        AddAirResistance();
-        var correctedVector = GetAllowedDistance(_velocity * Time.deltaTime);
-        transform.position += correctedVector;
-    }
-
+    
     private RaycastHit GetGroundNormal()
     {
         var distanceToPoints = _collider.height / 2;
@@ -148,7 +152,7 @@ public class ThreeDController : MonoBehaviour
         Physics.CapsuleCast(point1, point2, _collider.radius, Vector3.down, out var hit, groundCheckDistance + skinWidth, collisionLayer);
         return hit;
     }
-
+    
     private void AddAirResistance()
     {
         _velocity *= Mathf.Pow(1 - airResistant, Time.deltaTime);
@@ -159,20 +163,16 @@ public class ThreeDController : MonoBehaviour
         if (_velocity.magnitude < (normalForceMagnitude * staticFriction)) _velocity = Vector3.zero;
         _velocity -= (_velocity.normalized * (normalForceMagnitude * dynamicFriction));
     }
-
-    private void Accelerate(Vector3 forces)
+    
+    private void AddOverLayCorrection(Vector3 movement, Vector3 point1, Vector3 point2)
     {
-        var turnSpeed = Mathf.Lerp(0.1f, 0.4f, Vector3.Dot(forces.normalized, _velocity.normalized));
-        _velocity += forces * ((accelerationSpeed + turnSpeed) * Time.deltaTime);
-        if (_velocity.magnitude > terminalVelocity) _velocity = _velocity.normalized * (terminalVelocity);
-    }
-
-    private void Decelerate()
-    {
-        var decelerateVector = _velocity;
-        decelerateVector.y = 0;
-        if (decelerateVector.magnitude > decelerateThreshold) _velocity += decelerateVector.normalized * (decelerateSpeed * Time.deltaTime);
-        else _velocity.x = 0;
+        var overlapCollides = Physics.OverlapCapsule(point1, point2, _collider.radius, collisionLayer);
+        foreach (var overlapCollider in overlapCollides)
+        {
+            var playerClosestPointOnBounds = _collider.ClosestPointOnBounds(overlapCollider.transform.position);
+            var colliderOverLapClosestPointOnBounds = overlapCollider.ClosestPointOnBounds(playerClosestPointOnBounds);
+            _velocity +=  -movement.normalized * ((colliderOverLapClosestPointOnBounds.magnitude + overlayColliderResistant*100.0f) * Time.deltaTime);
+        }
     }
 
     private void RotateCamera()
