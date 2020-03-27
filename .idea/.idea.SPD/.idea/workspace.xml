@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9d58736-056d-42b1-b8c3-ececfb36dad4" name="Default Changelist" comment="Fixed angle of projection">
+    <list default="true" id="c9d58736-056d-42b1-b8c3-ececfb36dad4" name="Default Changelist" comment="Added GitignoreTag">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SPD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SPD/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3DPlayerController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3DPlayerController.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ThreeDController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ThreeDController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +19,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/HelpClass.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TwoDController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ThreeDController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/3DPlayerController.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0-preview.6/InputSystem/Editor/AssetEditor/InputActionAssetManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0-preview.6/InputSystem/Editor/AssetEditor/InputActionEditorWindow.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -79,7 +82,7 @@
       <workItem from="1585226586615" duration="29682000" />
       <workItem from="1585267851103" duration="8360000" />
       <workItem from="1585299836861" duration="115000" />
-      <workItem from="1585299965980" duration="10084000" />
+      <workItem from="1585299965980" duration="17384000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed angle of projection">
       <created>1585311493075</created>
@@ -88,7 +91,21 @@
       <option name="project" value="LOCAL" />
       <updated>1585311493075</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixed layername">
+      <created>1585311707638</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1585311707638</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added GitignoreTag">
+      <created>1585311746280</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1585311746280</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,7 +128,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed angle of projection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed angle of projection" />
+    <MESSAGE value="Fixed layername" />
+    <MESSAGE value="Added GitignoreTag" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added GitignoreTag" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1130" y="220" key="RiderGenerateDialog" timestamp="1584992340525">
@@ -126,10 +145,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="804" y="224" key="VCS.ChangeListViewerDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585306427884" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585311496617">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585311708801">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585311496617" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585311708801" />
     <state x="605" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585141742529">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -37,6 +37,9 @@ public class ThreeDController : MonoBehaviour
     [Range(0f,1f)]
     public float groundCheckDistance;
     [SerializeField]
+    [Range(0f,1f)]
+    public float overlayColliderResistant;
+    [SerializeField]
     [Range(1f,500f)]
     public float mouseSensitivity;
     public LayerMask collisionLayer;
@@ -57,6 +60,7 @@ public class ThreeDController : MonoBehaviour
         airResistant = 0.1f;
         skinWidth = 0.05f;
         groundCheckDistance = 0.05f;
+        overlayColliderResistant = 0.1f;
         mouseSensitivity = 100;
         _collider = GetComponent<CapsuleCollider>();
         _firstPersonCamera = transform.GetChild(0);
@@ -67,20 +71,35 @@ public class ThreeDController : MonoBehaviour
 
     private Vector3 GetAllowedDistance(Vector3 movement)
     {
-        var distanceToPoints = _collider.height / 2;
-        var position = transform.position;
-        var center = _collider.center;
-        var point1 = position + center + Vector3.up * distanceToPoints;
-        var point2 = position + center + Vector3.down * distanceToPoints;
-        Physics.CapsuleCast(point1, point2, _collider.radius, movement.normalized, out var hit, float.PositiveInfinity, collisionLayer);
-        if (!hit.collider) return movement;
-        var allowedDistance = hit.distance + (skinWidth / Vector3.Dot(movement.normalized, hit.normal));
-        if (allowedDistance < 0) allowedDistance = 0;
-        if (allowedDistance >= movement.magnitude) return movement;
-        var normalForce = HelpClass.GetNormalForce(_velocity, hit.normal);
-        _velocity += normalForce;
-        AddFriction(normalForce.magnitude);
-        return GetAllowedDistance(_velocity * Time.deltaTime);
+        while (true)
+        {
+            var distanceToPoints = _collider.height / 2;
+            var position = transform.position;
+            var center = _collider.center;
+            var point1 = position + center + Vector3.up * distanceToPoints;
+            var point2 = position + center + Vector3.down * distanceToPoints;
+            Physics.CapsuleCast(point1, point2, _collider.radius, movement.normalized, out var hit, float.PositiveInfinity, collisionLayer);
+            if (!hit.collider) return movement;
+            var allowedDistance = hit.distance + (skinWidth / Vector3.Dot(movement.normalized, hit.normal));
+            if (allowedDistance < 0) allowedDistance = 0;
+            if (allowedDistance >= movement.magnitude) return movement;
+            var normalForce = HelpClass.GetNormalForce(_velocity, hit.normal);
+            _velocity += normalForce;
+            AddFriction(normalForce.magnitude);
+            AddOverLayCorrection(movement, point1, point2);
+            movement = _velocity * Time.deltaTime;
+        }
+    }
+
+    private void AddOverLayCorrection(Vector3 movement, Vector3 point1, Vector3 point2)
+    {
+        var overlapCollides = Physics.OverlapCapsule(point1, point2, _collider.radius, collisionLayer);
+        foreach (var overlapCollider in overlapCollides)
+        {
+            var playerClosestPointOnBounds = _collider.ClosestPointOnBounds(overlapCollider.transform.position);
+            var colliderOverLapClosestPointOnBounds = overlapCollider.ClosestPointOnBounds(playerClosestPointOnBounds);
+            _velocity +=  -movement.normalized * (colliderOverLapClosestPointOnBounds.magnitude * overlayColliderResistant);
+        }
     }
 
     private Vector3 GetJumpVector()
