@@ -49,11 +49,11 @@ public class ThreeDController : MonoBehaviour
         accelerationSpeed = 15f;
         decelerateSpeed = -1f;
         decelerateThreshold = 0.01f;
-        terminalVelocity = 30f;
+        terminalVelocity = 20f;
         jumpHeight = 9f;
         gravity = 14f;
-        staticFriction = 0.6f;
-        dynamicFriction = 0.4f;
+        staticFriction = 0.8f;
+        dynamicFriction = 0.6f;
         airResistant = 0.1f;
         skinWidth = 0.05f;
         groundCheckDistance = 0.05f;
@@ -72,10 +72,10 @@ public class ThreeDController : MonoBehaviour
         var center = _collider.center;
         var point1 = position + center + Vector3.up * distanceToPoints;
         var point2 = position + center + Vector3.down * distanceToPoints;
-        Physics.CapsuleCast(point1, point2, _collider.radius, movement.normalized, out var hit, float.PositiveInfinity,
-            geometriLayer);
+        Physics.CapsuleCast(point1, point2, _collider.radius, movement.normalized, out var hit, float.PositiveInfinity, geometriLayer);
         if (!hit.collider) return movement;
         var allowedDistance = hit.distance + (skinWidth / Vector3.Dot(movement.normalized, hit.normal));
+        if (allowedDistance < 0) allowedDistance = 0;
         if (allowedDistance >= movement.magnitude) return movement;
         var normalForce = HelpClass.GetNormalForce(_velocity, hit.normal);
         _velocity += normalForce;
@@ -92,6 +92,7 @@ public class ThreeDController : MonoBehaviour
     private Vector3 GetInputVector()
     {
         var direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        direction = CorrectInputVectorFromCamera(direction);
         if (direction.magnitude > 1)
         {
             return direction.normalized * (accelerationSpeed * Time.deltaTime);
@@ -108,21 +109,15 @@ public class ThreeDController : MonoBehaviour
     private void AddForce()
     {
         var inputVector = GetInputVector();
-        inputVector = CorrectInputVectorFromCamera(inputVector);
         var forces = (inputVector + GetJumpVector() + GetGravityVector());
         if (inputVector.magnitude > 0)
             Accelerate(forces);
         else
             Decelerate();
         _velocity += forces;
-        _velocity *= GetAirResistance();
-        transform.position += GetAllowedDistance(_velocity * Time.deltaTime);
-    }
-
-    private Vector3 CorrectInputVectorFromCamera(Vector3 inputVector)
-    {
-        var hit = GetGroundNormal();
-        return Vector3.ProjectOnPlane(_firstPersonCamera.rotation.normalized * inputVector, hit.collider ? hit.normal : Vector3.up);
+        AddAirResistance();
+        var correctedVector = GetAllowedDistance(_velocity * Time.deltaTime);
+        transform.position += correctedVector;
     }
 
     private RaycastHit GetGroundNormal()
@@ -136,9 +131,9 @@ public class ThreeDController : MonoBehaviour
         return hit;
     }
 
-    private float GetAirResistance()
+    private void AddAirResistance()
     {
-        return Mathf.Pow(1 - airResistant, Time.deltaTime);
+        _velocity *= Mathf.Pow(1 - airResistant, Time.deltaTime);
     }
 
     private void AddFriction(float normalForceMagnitude)
@@ -162,18 +157,25 @@ public class ThreeDController : MonoBehaviour
         else _velocity.x = 0;
     }
 
-    private void Update()
-    {
-        RotateCamera();
-        AddForce();
-    }
-
     private void RotateCamera()
     {
         var cameraRotation = new Vector2(Input.GetAxisRaw("Mouse Y"), Input.GetAxisRaw("Mouse X")) * (mouseSensitivity * Time.deltaTime);
         _cameraRotation.x += cameraRotation.y;
         _cameraRotation.y -= cameraRotation.x;
-        _cameraRotation.y = Mathf.Clamp(_cameraRotation.y, -90f, 90f);
+        _cameraRotation.y = Mathf.Clamp(_cameraRotation.y, -89.9f, 89.9f);
         _firstPersonCamera.localRotation = Quaternion.Euler(_cameraRotation.y, _cameraRotation.x, 0);
+    }
+    
+    private Vector3 CorrectInputVectorFromCamera(Vector3 inputVector)
+    {
+        var hit = GetGroundNormal();
+        var projectHor = Vector3.ProjectOnPlane(_firstPersonCamera.rotation * inputVector, Vector3.up);
+        return hit.collider ? Vector3.ProjectOnPlane(projectHor,  hit.normal).normalized : projectHor;
+    }
+    
+    private void Update()
+    {
+        RotateCamera();
+        AddForce();
     }
 }

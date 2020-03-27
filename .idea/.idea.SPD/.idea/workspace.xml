@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9d58736-056d-42b1-b8c3-ececfb36dad4" name="Default Changelist" comment="" />
+    <list default="true" id="c9d58736-056d-42b1-b8c3-ececfb36dad4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SPD/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SPD/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SPD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SPD/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3DPlayerController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3DPlayerController.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ThreeDController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ThreeDController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PhysicsComponent.cs" root0="FORCE_HIGHLIGHTING" />
@@ -29,6 +37,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1ZXQFpzJ7JGaRWIFSJlKcLSR4DF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -38,7 +47,9 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="Rider.SolutionExplorerActivator" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TWShift.3" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -70,6 +81,8 @@
       <workItem from="1585130042689" duration="36113000" />
       <workItem from="1585226586615" duration="29682000" />
       <workItem from="1585267851103" duration="8360000" />
+      <workItem from="1585299836861" duration="115000" />
+      <workItem from="1585299965980" duration="9741000" />
     </task>
     <servers />
   </component>
@@ -78,11 +91,32 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
     <state x="-1130" y="220" key="RiderGenerateDialog" timestamp="1584992340525">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1130" y="220" key="RiderGenerateDialog/-1920.0.1920.1040/0.0.1920.1040@-1920.0.1920.1040" timestamp="1584992340525" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1585299950201">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585299950201" />
+    <state x="804" y="224" key="VCS.ChangeListViewerDialog" timestamp="1585306427884">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="804" y="224" key="VCS.ChangeListViewerDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585306427884" />
     <state x="605" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585141742529">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
