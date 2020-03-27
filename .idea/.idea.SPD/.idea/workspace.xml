@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9d58736-056d-42b1-b8c3-ececfb36dad4" name="Default Changelist" comment="Added some Config Parameters" />
+    <list default="true" id="c9d58736-056d-42b1-b8c3-ececfb36dad4" name="Default Changelist" comment="Reformated my code a bit">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ThreeDController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ThreeDController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +80,7 @@
       <workItem from="1585226586615" duration="29682000" />
       <workItem from="1585267851103" duration="8360000" />
       <workItem from="1585299836861" duration="115000" />
-      <workItem from="1585299965980" duration="18450000" />
+      <workItem from="1585299965980" duration="18726000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed angle of projection">
       <created>1585311493075</created>
@@ -115,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585320099415</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Reformated my code a bit">
+      <created>1585320346730</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1585320346731</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,7 +151,8 @@
     <MESSAGE value="Added GitignoreTag" />
     <MESSAGE value="Fixed OverLayCorrection" />
     <MESSAGE value="Added some Config Parameters" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some Config Parameters" />
+    <MESSAGE value="Reformated my code a bit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reformated my code a bit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1130" y="220" key="RiderGenerateDialog" timestamp="1584992340525">
@@ -157,10 +167,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="804" y="224" key="VCS.ChangeListViewerDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585306427884" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585320118238">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585320347910">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585320118238" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585320347910" />
     <state x="605" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585141742529">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

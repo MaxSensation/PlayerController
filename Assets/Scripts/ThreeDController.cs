@@ -42,7 +42,9 @@ public class ThreeDController : MonoBehaviour
     [SerializeField]
     [Range(0f,500f)]
     public float mouseSensitivity;
+    [SerializeField]
     public LayerMask collisionLayer;
+    
     private CapsuleCollider _collider;
     private Transform _firstPersonCamera;
     private Vector3 _velocity;
