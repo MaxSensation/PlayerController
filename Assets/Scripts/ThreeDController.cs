@@ -15,12 +15,12 @@ public class ThreeDController : MonoBehaviour
     [SerializeField]
     [Range(1f,500f)]
     public float accelerationSpeed;
-    [SerializeField]
-    [Range(-1f,-500f)]
-    public float decelerateSpeed;
-    [SerializeField]
-    [Range(0f,1f)]
-    public float decelerateThreshold;
+    // [SerializeField]
+    // [Range(-1f,-500f)]
+    // public float decelerateSpeed;
+    // [SerializeField]
+    // [Range(0f,1f)]
+    // public float decelerateThreshold;
     [SerializeField]
     [Range(0f,1f)]
     public float staticFriction;
@@ -44,16 +44,16 @@ public class ThreeDController : MonoBehaviour
     public float mouseSensitivity;
     [SerializeField]
     public LayerMask collisionLayer;
-    
+    [NonSerialized]
+    private Vector3 _velocity;
     private CapsuleCollider _collider;
     private Transform _firstPersonCamera;
-    private Vector3 _velocity;
     private Vector2 _cameraRotation;
     private void Awake()
     {
         accelerationSpeed = 15f;
-        decelerateSpeed = -1f;
-        decelerateThreshold = 0.01f;
+        // decelerateSpeed = -1f;
+        // decelerateThreshold = 0.01f;
         terminalVelocity = 20f;
         jumpHeight = 9f;
         gravity = 14f;
@@ -75,10 +75,8 @@ public class ThreeDController : MonoBehaviour
     {
         var inputVector = GetInputVector();
         var forces = (inputVector + GetJumpVector() + GetGravityVector());
-        if (inputVector.magnitude > 0)
-            Accelerate(forces);
-        else
-            Decelerate();
+        if (inputVector.magnitude > 0) Accelerate(forces);
+        // else Decelerate();
         _velocity += forces;
         AddAirResistance();
         var correctedVector = GetAllowedDistance(_velocity * Time.deltaTime);
@@ -92,13 +90,13 @@ public class ThreeDController : MonoBehaviour
         if (_velocity.magnitude > terminalVelocity) _velocity = _velocity.normalized * (terminalVelocity);
     }
 
-    private void Decelerate()
-    {
-        var decelerateVector = _velocity;
-        decelerateVector.y = 0;
-        if (decelerateVector.magnitude > decelerateThreshold) _velocity += decelerateVector.normalized * (decelerateSpeed * Time.deltaTime);
-        else _velocity.x = 0;
-    }
+    // private void Decelerate()
+    // {
+    //     var decelerateVector = velocity;
+    //     decelerateVector.y = 0;
+    //     if (decelerateVector.magnitude > decelerateThreshold) velocity += decelerateVector.normalized * (decelerateSpeed * Time.deltaTime);
+    //     else velocity.x = 0;
+    // }
     
     private Vector3 GetAllowedDistance(Vector3 movement)
     {
@@ -192,7 +190,7 @@ public class ThreeDController : MonoBehaviour
         var projectHorizontal = Vector3.ProjectOnPlane(_firstPersonCamera.rotation * inputVector, Vector3.up);
         return hit.collider ? Vector3.ProjectOnPlane(projectHorizontal,  hit.normal).normalized : projectHorizontal;
     }
-    
+
     private void Update()
     {
         RotateCamera();
