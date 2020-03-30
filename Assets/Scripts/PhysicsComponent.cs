@@ -5,14 +5,14 @@ public class PhysicsComponent : MonoBehaviour
     private Vector3 _velocity;
     private Vector3 _previousPosition;
     private BoxCollider _boxCollider;
-    private ThreeDController _player;
+    private PlayerController _player;
     private float _maxDistance;
     private RaycastHit _hit;
     private void Awake()
     {
         _boxCollider = GetComponent<BoxCollider>();
-        _player = GameObject.FindWithTag("Player").GetComponent<ThreeDController>();
-        _maxDistance = (_player.skinWidth + _player.groundCheckDistance) * 4f;
+        _player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        // _maxDistance = (_player.skinWidth + _player.groundCheckDistance) * 4f;
     }
 
     private void Update()
@@ -27,21 +27,21 @@ public class PhysicsComponent : MonoBehaviour
         if (_hit.collider && _hit.collider.CompareTag("Player"))
         {
             //För att få fram differensen, subtraherar vi spelarens hastighet längs med ytan med plattformens hastighet
-            var playerVelocityOnPlane = Vector3.ProjectOnPlane(_player.Velocity, Vector3.up) * _player.Velocity.magnitude;
-            var playerSpeedDifference = (playerVelocityOnPlane.magnitude - _velocity.magnitude) * -_velocity.normalized;
+            // var playerVelocityOnPlane = Vector3.ProjectOnPlane(_player.velocity, Vector3.up) * _player.velocity.magnitude;
+            // var playerSpeedDifference = (playerVelocityOnPlane.magnitude - _velocity.magnitude) * -_velocity.normalized;
             // var normalForce = HelpClass.GetNormalForce((playerSpeedDifference.magnitude - _velocity.magnitude) * -_velocity.normalized,  Vector3.up);
             // _player.Velocity += normalForce;
             //
             // Debug.Log(normalForce);
             //Om differensen av hastigheten är mindre än den statiska friktionen bör karaktären stå still på plattformen (alltså röra sig i samma hastighet som plattformen)
-            if (playerVelocityOnPlane.magnitude < _player.staticFriction)
+            // if (playerVelocityOnPlane.magnitude < _player.staticFriction)
             {
-                _player.Velocity -= playerSpeedDifference;
+                // _player.velocity -= playerSpeedDifference;
             }
             // Om spelaren rör sig snabbare än den statiska friktionen 
-            else
+            // else
             {
-                _player.Velocity -= playerSpeedDifference.normalized * (_player.normalForce.magnitude * _player.dynamicFriction);                
+                //_player.velocity -= playerSpeedDifference.normalized * (_player.normalForce.magnitude * _player.dynamicFriction);                
             }
         }
     }

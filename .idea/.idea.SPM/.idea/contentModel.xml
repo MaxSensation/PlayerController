@@ -7,7 +7,12 @@
         <e p="Scripts" t="Include">
           <e p="HelpClass.cs" t="Include" />
           <e p="PhysicsComponent.cs" t="Include" />
-          <e p="ThreeDController.cs" t="Include" />
+          <e p="PlayerController.cs" t="Include" />
+          <e p="PlayerStates" t="Include">
+            <e p="JumpingState.cs" t="Include" />
+            <e p="PlayerState.cs" t="Include" />
+            <e p="StandingState.cs" t="Include" />
+          </e>
           <e p="TwoDController.cs" t="Include" />
         </e>
       </e>
