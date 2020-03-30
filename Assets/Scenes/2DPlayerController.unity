@@ -760,8 +760,6 @@ GameObject:
   - component: {fileID: 1746074303}
   - component: {fileID: 1746074302}
   - component: {fileID: 1746074301}
-  - component: {fileID: 1746074305}
-  - component: {fileID: 1746074306}
   m_Layer: 8
   m_Name: TiltedFloor (2)
   m_TagString: Untagged
@@ -856,34 +854,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.15501}
---- !u!111 &1746074305
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746074300}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: c3b669ea8c1c974419083870ce970346, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!114 &1746074306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746074300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e82c65e230ea014da57468806bbb591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1954711069
 GameObject:
   m_ObjectHideFlags: 0

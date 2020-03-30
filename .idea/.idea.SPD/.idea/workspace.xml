@@ -4,10 +4,10 @@
     <list default="true" id="c9d58736-056d-42b1-b8c3-ececfb36dad4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SPD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SPD/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Animations/MovingPlatform.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/MovingPlatform.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2DPlayerController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2DPlayerController.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/3DPlayerController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3DPlayerController.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PhysicsComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PhysicsComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ThreeDController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ThreeDController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +24,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ThreeDController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/3DPlayerController.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0-preview.6/InputSystem/Editor/AssetEditor/InputActionAssetManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/2DPlayerController.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0-preview.6/InputSystem/Editor/AssetEditor/InputActionEditorWindow.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -36,8 +37,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/TwoDController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Test.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SC_MovingPlatform.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PhysicsComponent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ThreeDController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PhysicsComponent.cs" />
       </list>
     </option>
   </component>
@@ -54,7 +55,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TWShift.3" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys_rider" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -89,7 +90,8 @@
       <workItem from="1585299836861" duration="115000" />
       <workItem from="1585299965980" duration="26153000" />
       <workItem from="1585337561648" duration="319000" />
-      <workItem from="1585403876342" duration="4075000" />
+      <workItem from="1585403876342" duration="11337000" />
+      <workItem from="1585486391769" duration="19819000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed angle of projection">
       <created>1585311493075</created>
@@ -140,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585320450316</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Disabled Manuel decelerate;">
+      <created>1585408072010</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1585408072010</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,36 +178,38 @@
     <MESSAGE value="Added some Config Parameters" />
     <MESSAGE value="Reformated my code a bit" />
     <MESSAGE value="Reformated my code a bit&#10;Added serializefield" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reformated my code a bit&#10;Added serializefield" />
+    <MESSAGE value="Disabled Manuel decelerate;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disabled Manuel decelerate;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1130" y="220" key="RiderGenerateDialog" timestamp="1584992340525">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1130" y="220" key="RiderGenerateDialog/-1920.0.1920.1040/0.0.1920.1040@-1920.0.1920.1040" timestamp="1584992340525" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1585299950201">
+    <state x="461" y="162" key="SettingsEditor" timestamp="1585506494189">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585299950201" />
+    <state x="461" y="162" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585506494189" />
     <state x="804" y="224" key="VCS.ChangeListViewerDialog" timestamp="1585306427884">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="804" y="224" key="VCS.ChangeListViewerDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585306427884" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585320451525">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585408078059">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585320451525" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585408078059" />
     <state x="605" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585141742529">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="605" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585141742529" />
-    <state x="-1304" y="240" width="672" height="677" key="run.anything.popup" timestamp="1584995573665">
-      <screen x="-1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="-1304" y="240" width="672" height="677" key="run.anything.popup/-1920.0.1920.1040/0.0.1920.1040@-1920.0.1920.1040" timestamp="1584995573665" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585325936607">
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1585498595745">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585325936607" />
+    <state x="-1304" y="240" width="672" height="677" key="run.anything.popup/-1920.0.1920.1040/0.0.1920.1040@-1920.0.1920.1040" timestamp="1584995573665" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585498595745" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585411688240">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1585411688240" />
   </component>
 </project>
