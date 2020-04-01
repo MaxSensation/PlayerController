@@ -5,15 +5,25 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
-          <e p="HelpClass.cs" t="Include" />
-          <e p="PhysicsComponent.cs" t="Include" />
-          <e p="PlayerController.cs" t="Include" />
-          <e p="PlayerStates" t="Include">
-            <e p="JumpingState.cs" t="Include" />
-            <e p="PlayerState.cs" t="Include" />
-            <e p="StandingState.cs" t="Include" />
+          <e p="HelpClasses" t="Include">
+            <e p="Physic3D.cs" t="Include" />
+            <e p="State.cs" t="Include" />
+            <e p="TwoDController.cs" t="Include" />
+            <e p="World.cs" t="Include" />
           </e>
-          <e p="TwoDController.cs" t="Include" />
+          <e p="PhysicsComponent.cs" t="Include" />
+          <e p="PlayerController" t="Include">
+            <e p="PlayerController.cs" t="Include" />
+            <e p="PlayerStateMachine" t="Include">
+              <e p="InAirState.cs" t="Include" />
+              <e p="JumpState.cs" t="Include" />
+              <e p="LandState.cs" t="Include" />
+              <e p="MoveState.cs" t="Include" />
+              <e p="PlayerBaseState.cs" t="Include" />
+              <e p="StandState.cs" t="Include" />
+            </e>
+            <e p="StateMachine.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
