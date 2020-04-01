@@ -15,11 +15,10 @@ namespace PlayerStateMachine
         
         public override void Run()
         {
+            // If grounded then change to land State
             if (Player.GetRayCast(Vector3.down, GetGroundCheckDistance + GetSkinWidth).collider)
-            {
                 stateMachine.TransitionTo<LandState>();
-            }
-
+            
             // Get Input from user
             var inputVector = Player.GetInputVector(accelerationSpeed);
         

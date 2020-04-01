@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
     private CapsuleCollider _collider;
     private Transform _camera;
     private Vector2 _cameraRotation;
-    private Vector3 _whereCameraWantToMove;
     private RaycastHit _cameraCast;
     private Vector3 _cameraOffset;
     private Vector3 _point1;
@@ -166,11 +165,16 @@ public class PlayerController : MonoBehaviour
         // If in Third Person then update the position of the camera related to the player
         if (thirdPersonCamera)
         {
+            // Save the players position
             var playerPosition = transform.position;
-            _whereCameraWantToMove = (playerPosition + _cameraOffset) - (_camera.forward * thirdPersonCameraDistance);
-            var direction = (_whereCameraWantToMove - playerPosition).normalized;
-            var distance = (_whereCameraWantToMove - playerPosition).magnitude;
-            _camera.position = Physics.SphereCast(playerPosition + _cameraOffset, thirdPersonCameraSize, direction, out _cameraCast, distance) ? playerPosition + _cameraOffset + direction * _cameraCast.distance : _whereCameraWantToMove;
+            // Get the position the Camera want to move to
+            var whereCameraWantToMove = (playerPosition + _cameraOffset) - (_camera.forward * thirdPersonCameraDistance);
+            // Get the direction from the players First Person Camera Position to the position where the Third Person Camera position want to move
+            var direction = (whereCameraWantToMove - playerPosition).normalized;
+            // Get the distance from the players First Person Camera Position to the position where the Third Person Camera position want to move
+            var distance = (whereCameraWantToMove - playerPosition).magnitude;
+            // Get the position from the players First Person Camera Position to Third Person Camera position want to move and move the camera to that position based on collisions
+            _camera.position = Physics.SphereCast(playerPosition + _cameraOffset, thirdPersonCameraSize, direction, out _cameraCast, distance) ? playerPosition + _cameraOffset + direction * _cameraCast.distance : whereCameraWantToMove;
         } 
         // If in First Person then update the position to zero 
         else _camera.localPosition = _cameraOffset;
@@ -178,13 +182,17 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 CorrectInputVectorFromCamera(Vector3 inputVector)
     {
-        var hit = GetRayCast(Vector3.down, groundCheckDistance + skinWidth);
+        // Get the horizontal projection velocity
         var projectHorizontal = Vector3.ProjectOnPlane(_camera.rotation * inputVector, Vector3.up);
+        // Do a cast in the down direction to check if the player is standing on the ground
+        var hit = GetRayCast(Vector3.down, groundCheckDistance + skinWidth);
+        // If any collision then project that speed to that normal of that collision else project horizontal only
         return hit.collider ? Vector3.ProjectOnPlane(projectHorizontal,  hit.normal).normalized : projectHorizontal.normalized;
     }
     
     internal RaycastHit GetRayCast(Vector3 direction, float magnitude)
     {
+        // Return a Raycast Hit in the direction and magnitude specific
         Physics.CapsuleCast(_point1, _point2, _collider.radius, direction.normalized, out var hit, magnitude, collisionLayer);
         return hit;
     }
