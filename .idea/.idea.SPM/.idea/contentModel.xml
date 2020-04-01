@@ -18,9 +18,10 @@
               <e p="InAirState.cs" t="Include" />
               <e p="JumpState.cs" t="Include" />
               <e p="LandState.cs" t="Include" />
-              <e p="MoveState.cs" t="Include" />
               <e p="PlayerBaseState.cs" t="Include" />
+              <e p="RunState.cs" t="Include" />
               <e p="StandState.cs" t="Include" />
+              <e p="WalkState.cs" t="Include" />
             </e>
             <e p="StateMachine.cs" t="Include" />
           </e>

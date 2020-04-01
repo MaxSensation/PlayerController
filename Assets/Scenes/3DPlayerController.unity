@@ -326,27 +326,24 @@ MonoBehaviour:
   states:
   - {fileID: 11400000, guid: ca4e009196d05d5448361d7ed0fbee7b, type: 2}
   - {fileID: 11400000, guid: 6a0a63cb45b836d40a96c55822255415, type: 2}
+  - {fileID: 11400000, guid: 077619eb1f5e0c84596a2841d05952d8, type: 2}
   - {fileID: 11400000, guid: 7c3d39f665601284fb5839c02f79be9d, type: 2}
   - {fileID: 11400000, guid: d33995b8a5ea5604c86f89824dbef01c, type: 2}
   - {fileID: 11400000, guid: a134f48d503307541a887d28f421878e, type: 2}
-  jumpHeight: 0
-  gravity: 0
   terminalVelocity: 0
-  accelerationSpeed: 0
   staticFriction: 0
   dynamicFriction: 0
-  airResistant: 0
   skinWidth: 0
   groundCheckDistance: 0
   overlayColliderResistant: 0
   mouseSensitivity: 0
-  collisionLayer:
-    serializedVersion: 2
-    m_Bits: 256
   thirdPersonCamera: 0
   thirdPersonCameraSize: 0
   thirdPersonCameraMaxAngle: 0
   thirdPersonCameraDistance: 0
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &136723590
 GameObject:
   m_ObjectHideFlags: 0

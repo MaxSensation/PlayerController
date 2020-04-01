@@ -13,7 +13,7 @@ namespace PlayerStateMachine
         {
             // If any move Input then change to MoveState
             if (new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).magnitude > 0f)
-                stateMachine.TransitionTo<MoveState>();
+                stateMachine.TransitionTo<WalkState>();
             
             // Check for ground
             var grounded = Player.GetRayCast(Vector3.down, GetGroundCheckDistance + GetSkinWidth).collider;

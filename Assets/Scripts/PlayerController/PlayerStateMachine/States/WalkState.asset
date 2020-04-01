@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0a691d2871f4914d9496f44778b649a, type: 3}
-  m_Name: MoveState
+  m_Name: WalkState
   m_EditorClassIdentifier: 
   accelerationSpeed: 10
   minMoveSpeed: 0.001

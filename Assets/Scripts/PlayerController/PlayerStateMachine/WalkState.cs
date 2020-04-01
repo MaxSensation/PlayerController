@@ -2,8 +2,8 @@
 
 namespace PlayerStateMachine
 {
-    [CreateAssetMenu(menuName = "PlayerState/MoveState")]
-    public class MoveState : PlayerBaseState
+    [CreateAssetMenu(menuName = "PlayerState/WalkState")]
+    public class WalkState : PlayerBaseState
     {
         [SerializeField] private float accelerationSpeed;
         [SerializeField] private float minMoveSpeed;
@@ -17,6 +17,10 @@ namespace PlayerStateMachine
         
         public override void Run()
         {
+            // Run if shift is pressed
+            if (Input.GetKey(KeyCode.LeftShift))
+                stateMachine.TransitionTo<RunState>();
+            
             // If Player is on Ground and the Player is pressing the jumpKey then change state to JumpState
             if (Player.GetRayCast(Vector3.down, GetGroundCheckDistance + GetSkinWidth).collider && Input.GetKeyDown(KeyCode.Space))
                 stateMachine.TransitionTo<JumpState>();
