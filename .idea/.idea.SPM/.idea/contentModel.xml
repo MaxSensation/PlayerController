@@ -8,6 +8,7 @@
           <e p="HelpClasses" t="Include">
             <e p="Physic3D.cs" t="Include" />
             <e p="State.cs" t="Include" />
+            <e p="StateMachine.cs" t="Include" />
             <e p="TwoDController.cs" t="Include" />
             <e p="World.cs" t="Include" />
           </e>
@@ -24,7 +25,6 @@
               <e p="StandState.cs" t="Include" />
               <e p="WalkState.cs" t="Include" />
             </e>
-            <e p="StateMachine.cs" t="Include" />
           </e>
         </e>
       </e>

@@ -11,9 +11,9 @@ public class StateMachine
 
     public StateMachine(object controller, State[] states)
     {
-        foreach (State state in states)
+        foreach (var state in states)
         {
-            State instance = UnityEngine.Object.Instantiate(state);
+            var instance = UnityEngine.Object.Instantiate(state);
             instance.owner = controller;
             instance.stateMachine = this;
             _stateDictionary.Add(instance.GetType(), instance);
@@ -29,13 +29,7 @@ public class StateMachine
     {
         _queuedState = _stateDictionary[typeof(T)];
     }
-
-    // public void TranasitionBack()
-    // {
-    //     if (automaton.Count != 0)
-    //         queuedState = automaton.Pop();
-    // }
-
+    
     public void Run()
     {
         UpdateState();
@@ -44,12 +38,10 @@ public class StateMachine
 
     private void UpdateState()
     {
-        if (_queuedState != null &&_queuedState != _currentState)
+        if (_queuedState != null && _queuedState != _currentState)
         {
             if (_currentState != null)
                 _currentState.Exit();
-            // NOTE(Fors): Pushdown automaton
-            // automaton.Push(currentState);
             _currentState = _queuedState;
             _currentState.Enter();
         }
