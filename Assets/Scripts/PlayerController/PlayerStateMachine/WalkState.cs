@@ -6,13 +6,12 @@ namespace PlayerStateMachine
     public class WalkState : PlayerBaseState
     {
         [SerializeField] private float accelerationSpeed;
-        [SerializeField] private float minMoveSpeed;
         // [SerializeField] private float decelerateSpeed;
         // [SerializeField] private float decelerateThreshold;
         
         public override void Enter()
         {
-            Debug.Log("Entered Move State");
+            Debug.Log("Entered Walk State");
         }
         
         public override void Run()
@@ -36,7 +35,7 @@ namespace PlayerStateMachine
             Velocity += inputVector;
 
             // Check if player is moving and if not change state to standState
-            if (Velocity.magnitude <= minMoveSpeed)
+            if (Velocity.magnitude <= 0)
                 stateMachine.TransitionTo<StandState>();
 
             // Save the gravityVector as a variable

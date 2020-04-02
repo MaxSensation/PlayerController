@@ -9,11 +9,16 @@ namespace PlayerStateMachine
         public override void Enter()
         {
             Debug.Log("Entered Land State");
-            // If moving then change to Move State else Change to Stand State
-            if (Velocity.magnitude > 0f)
-                stateMachine.TransitionTo<WalkState>();
-            else 
+            if (Vector3.Dot(Velocity, Vector3.down) > 0.99f || Velocity.magnitude <= 0)
                 stateMachine.TransitionTo<StandState>();
+            else
+            {
+                // Run if shift is pressed
+                if (Input.GetKey(KeyCode.LeftShift))
+                    stateMachine.TransitionTo<RunState>();
+                // Walk
+                stateMachine.TransitionTo<WalkState>();
+            }
         }
     }
 }

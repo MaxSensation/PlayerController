@@ -55,34 +55,28 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // Get CapsuleInfo
-        var playerPosition = transform.position;
-        var capsulePosition = playerPosition + _collider.center;
-        _point1 = capsulePosition + Vector3.up * _distanceToPoints;
-        _point2 = capsulePosition + Vector3.down * _distanceToPoints;
-
+        UpdateCapsuleInfo();
         // Run CurrentState
         _stateMachine.Run();
-        
         // Limit the velocity to terminalVelocity
         LimitVelocity();
-
         // Add Air resistant to the player
         _velocity *= Physic3D.GetAirResistant();
-        
         // Fix weird collision clips
         AddOverLayCorrection();
-        
         // Only Move Player as close as possible to the collision
-        playerPosition += FixCollision();
-        
-        // Set new Player position
-        transform.position = playerPosition;
-
+        transform.position += FixCollision();
         // RotateCamera from player input
         RotateCamera();
-        
         // Move Camera based on thirdPerson or firstPerson
         MoveCamera();
+    }
+
+    private void UpdateCapsuleInfo()
+    {
+            var capsulePosition = transform.position + _collider.center;
+            _point1 = capsulePosition + Vector3.up * _distanceToPoints;
+            _point2 = capsulePosition + Vector3.down * _distanceToPoints;
     }
 
     private void LimitVelocity()

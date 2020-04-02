@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c784fa9e0dfde24cb3d2ca66b791f8b, type: 3}
   m_Name: InAirState
   m_EditorClassIdentifier: 
-  accelerationSpeed: 10
+  accelerationSpeed: 4
