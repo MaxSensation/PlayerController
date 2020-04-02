@@ -1,27 +1,49 @@
 ﻿using UnityEngine;
 
-public class PhysicsComponent : MonoBehaviour
+public class MovingPlattform : MonoBehaviour
 {
+    [SerializeField]
+    private Vector3 endOffset;
+    [SerializeField]
+    private float speed;
+    
     private Vector3 _velocity;
-    private Rigidbody _rigidbody;
     private PlayerController _player;
     private float _maxDistance;
     private RaycastHit _hit;
     private bool _wasOnPlatform;
     
+    private Rigidbody _rigidbody;
+    private Vector3 _startPosition;
+    private Vector3 _endPosition;
+    private bool _movingFromStartPosition;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _startPosition = transform.position;
+        _movingFromStartPosition = true;
+        _endPosition = _startPosition + endOffset;
         _player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         _maxDistance = (_player.GetSkinWidth() + _player.GetGroundCheckDistance()) * 4f;
         _wasOnPlatform = false;
     }
 
-    private void Update()
+
+    // Update is called once per frame
+    void Update()
     {
+        var direction = (_endPosition - transform.position).normalized;
+        var magnitude = direction.magnitude * speed;
+        if (_movingFromStartPosition)
+        {
+            Debug.Log(direction * magnitude);
+            _rigidbody.AddForce(direction * magnitude);
+        }
         CheckCollition();
     }
-
+    
+    
     private void CheckCollition()
     {
         Physics.BoxCast(transform.position, transform.lossyScale / 2, Vector3.up, out _hit, transform.rotation, _maxDistance);
@@ -41,21 +63,4 @@ public class PhysicsComponent : MonoBehaviour
             }
         }
     }
-    
-    // public void OnDrawGizmos()
-    // {
-    //     if (_hit.collider)
-    //     {
-    //         Gizmos.color = Color.red;
-    //         Gizmos.DrawRay(transform.position, Vector3.up * _hit.distance);
-    //         Gizmos.DrawWireCube(transform.position + Vector3.up * _hit.distance, transform.lossyScale);
-    //     }
-    //     else
-    //     {
-    //         Gizmos.color = Color.green;
-    //         Gizmos.DrawRay(transform.position, Vector3.up * _maxDistance);
-    //     }
-    //     Debug.DrawLine(Vector3.zero, _player.GetVelocity(), Color.magenta);
-    //     Debug.DrawLine(Vector3.zero, Vector3.ProjectOnPlane(_player.GetVelocity(), Vector3.up) * _player.GetVelocity().magnitude, Color.yellow);
-    // }
 }

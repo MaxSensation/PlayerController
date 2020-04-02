@@ -38,18 +38,9 @@ namespace PlayerStateMachine
             if (Velocity.magnitude <= 0)
                 stateMachine.TransitionTo<StandState>();
 
-            // Save the gravityVector as a variable
-            var gravityVector = Physic3D.GetGravity();
-            
-            // Add gravityVector to Velocity
-            Velocity += gravityVector;
-            
-            // Combine forces
-            var forces = gravityVector + inputVector;
-
             // If any directional inputs accelerate with the accelerateSpeed added with turnSpeed 
             if (inputVector.magnitude > 0) 
-                Velocity += Physic3D.GetAcceleration(forces, accelerationSpeed + Physic3D.GetTurnVelocity(forces, Velocity.normalized));
+                Velocity += Physic3D.GetAcceleration(inputVector, accelerationSpeed + Physic3D.GetTurnVelocity(inputVector, Velocity.normalized));
             // else
             //     Velocity -= Physic3D.GetDeceleration(Velocity, decelerateSpeed, decelerateThreshold);
         }

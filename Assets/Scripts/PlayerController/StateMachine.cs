@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System;
+using UnityEngine.UI;
 
 public class StateMachine
 {
@@ -52,5 +53,11 @@ public class StateMachine
             _currentState = _queuedState;
             _currentState.Enter();
         }
+    }
+
+    public String GetState()
+    {
+        var state = _currentState.GetType().Name;
+        return state ?? "";
     }
 }

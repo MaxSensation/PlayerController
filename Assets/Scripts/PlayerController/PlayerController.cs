@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask collisionLayer;
     
     private StateMachine _stateMachine;
+    private Text _currentStateText;
     private Vector3 _velocity;
     private CapsuleCollider _collider;
     private Transform _camera;
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _stateMachine = new StateMachine(this, states);
+        _currentStateText = GameObject.FindWithTag("CurrentStateText").GetComponent<Text>();
         terminalVelocity = 20f;
         staticFriction = 0.8f;
         dynamicFriction = 0.6f;
@@ -58,6 +61,9 @@ public class PlayerController : MonoBehaviour
         UpdateCapsuleInfo();
         // Run CurrentState
         _stateMachine.Run();
+        _currentStateText.text = _stateMachine.GetState();
+        // Add gravity to velocity
+        _velocity += Physic3D.GetGravity();
         // Limit the velocity to terminalVelocity
         LimitVelocity();
         // Add Air resistant to the player
@@ -209,5 +215,10 @@ public class PlayerController : MonoBehaviour
     internal void SetVelocity(Vector3 velocity)
     {
         _velocity = velocity;
+    }
+
+    public void AddForce(Vector3 force)
+    {
+        _velocity += force;
     }
 }
