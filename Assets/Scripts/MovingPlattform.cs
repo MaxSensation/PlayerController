@@ -37,7 +37,6 @@ public class MovingPlattform : MonoBehaviour
         var magnitude = direction.magnitude * speed;
         if (_movingFromStartPosition)
         {
-            Debug.Log(direction * magnitude);
             _rigidbody.AddForce(direction * magnitude);
         }
         CheckCollition();

@@ -35,8 +35,8 @@ public class PlayerController : MonoBehaviour
         _stateMachine = new StateMachine(this, states);
         _currentStateText = GameObject.FindWithTag("CurrentStateText").GetComponent<Text>();
         terminalVelocity = 20f;
-        staticFriction = 0.8f;
-        dynamicFriction = 0.6f;
+        staticFriction = 0.6f;
+        dynamicFriction = 0.3f;
         skinWidth = 0.05f;
         groundCheckDistance = 0.05f;
         overlayColliderResistant = 20f;

@@ -9,7 +9,7 @@ namespace PlayerStateMachine
         public override void Enter()
         {
             Debug.Log("Entered Land State");
-            if (Vector3.Dot(Velocity, Vector3.down) > 0.99f || Velocity.magnitude <= 0)
+            if ( Velocity.magnitude <= 0f || Vector3.Dot(Velocity, Vector3.down) > 0.5f)
                 stateMachine.TransitionTo<StandState>();
             else
             {
